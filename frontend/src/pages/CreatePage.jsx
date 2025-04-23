@@ -38,11 +38,12 @@ function CreatePage() {
             spacing="8">
                 <Heading as="h1" size="2xl" textAlign="center" mb="8" mt="16">Create New Product</Heading>
                 <Box
-                w="full"
-                bg={useColorModeValue("gray.100", "gray.900")}
-                p="6"
-                rounded="lg"
-                shadow="md">
+                    w="full"
+                    bg={useColorModeValue("gray.100", "gray.700")}
+                    p="6"
+                    rounded="xl"
+                    shadow="lg"
+                >
                     <VStack spacing="4">
                         <Input
                             placeholder='Product Name'
