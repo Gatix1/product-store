@@ -8,7 +8,7 @@ function Navbar() {
     const { colorMode, toggleColorMode } = useColorMode();
 
     return (
-    <Container maxW="1140px" px="4" bg={useColorModeValue("gray.100", "gray.700")} rounded="xl" shadow="lg">
+    <Container maxW="1140px" py="3" px="4" bg={useColorModeValue("gray.100", "gray.700")} rounded="xl" shadow="lg">
         <Flex
             h="16"
             alignItems="center"

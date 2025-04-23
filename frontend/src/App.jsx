@@ -6,7 +6,7 @@ import Navbar from './components/Navbar.jsx';
 
 function App() {
   return (
-    <Box minH="100vh" paddingTop="4">
+    <Box minH="100vh" px="4" paddingTop="4">
       <Navbar/> 
       <Routes>
         <Route path="/" element={<HomePage/>}/>
