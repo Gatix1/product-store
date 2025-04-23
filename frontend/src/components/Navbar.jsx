@@ -21,7 +21,7 @@ function Navbar() {
         }}
         >
             <Text
-            bgGradient={useColorModeValue('linear(to-l,rgb(67, 67, 67),rgb(45, 36, 41))', 'linear(to-l,rgb(193, 190, 196),rgb(187, 149, 168))')}
+            bgGradient={useColorModeValue('linear(to-r,rgb(177, 108, 183),rgb(105, 63, 144))', 'linear(to-r,rgb(232, 232, 232),rgb(150, 126, 190))')}
             bgClip='text'
             fontSize={{base: "22", sm: "28"}}
             textTransform="uppercase"
