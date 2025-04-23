@@ -1,16 +1,34 @@
 import { React, useState } from 'react';
-import { Container, VStack, Heading, Box, useColorModeValue, Input, Button } from '@chakra-ui/react';
+import { Container, VStack, Heading, Box, useColorModeValue, Input, Button, useToast } from '@chakra-ui/react';
+import { useProductStore } from '../store/product';
 
 function CreatePage() {
 
-    const [newProducts, setNewProduct] = useState({
+    const [newProduct, setNewProduct] = useState({
         name: "",
         price: "",
         image: ""
     });
 
-    const handleNewProduct = () => {
-        console.log(newProducts);
+    const {createProduct} = useProductStore();
+    const toast = useToast();
+
+    const handleNewProduct = async () => {
+        const { success, message } = await createProduct(newProduct);
+
+        success ? toast({
+            title: "Success",
+            description: message,
+            status: "success",
+            duration: 3000,
+            isClosable: true
+        }) : toast({
+            title: "Error",
+            description: message,
+            status: "error",
+            duration: 3000,
+            isClosable: true
+        })
     }
 
 
@@ -29,20 +47,20 @@ function CreatePage() {
                         <Input
                             placeholder='Product Name'
                             name="name"
-                            value={newProducts.name}
-                            onChange={(e) => {setNewProduct({...newProducts, name: e.target.value})}}
+                            value={newProduct.name}
+                            onChange={(e) => {setNewProduct({...newProduct, name: e.target.value})}}
                         />
                         <Input
                             placeholder='Price ($)'
                             name="price"
-                            value={newProducts.price}
-                            onChange={(e) => {setNewProduct({...newProducts, price: e.target.value})}}
+                            value={newProduct.price}
+                            onChange={(e) => {setNewProduct({...newProduct, price: e.target.value})}}
                         />
                         <Input
                             placeholder='Image URL'
                             name="image"
-                            value={newProducts.image}
-                            onChange={(e) => {setNewProduct({...newProducts, image: e.target.value})}}
+                            value={newProduct.image}
+                            onChange={(e) => {setNewProduct({...newProduct, image: e.target.value})}}
                         />
                         <Button onClick={handleNewProduct} colorScheme='purple' w="full">Add Product</Button>
                     </VStack>
